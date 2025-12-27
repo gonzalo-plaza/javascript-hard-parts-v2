@@ -348,30 +348,50 @@ console.log(obj.getSecret()) // => returns 2
 
 // CHALLENGE 14
 function callTimes() {
-
+  let invokedTimes = 0;
+  function callTimesAction() {
+    return ++invokedTimes;
+  }
+  return callTimesAction;
 }
 
 // /*** Uncomment these to check your work! ***/
-// let myNewFunc1 = callTimes();
-// let myNewFunc2 = callTimes();
-// myNewFunc1(); // => 1
-// myNewFunc1(); // => 2
-// myNewFunc2(); // => 1
-// myNewFunc2(); // => 2
+let myNewFunc1 = callTimes();
+let myNewFunc2 = callTimes();
+console.log(myNewFunc1()); // => 1
+console.log(myNewFunc1()); // => 2
+console.log(myNewFunc2()); // => 1
+console.log(myNewFunc2()); // => 2
 
 
 // CHALLENGE 15
 function roulette(num) {
+  let timesPlayed = 0;
 
+  function rouletteAction() {
+    timesPlayed++
+
+    if (timesPlayed < num) {
+      return 'spin';
+    }
+
+    if (timesPlayed === num) {
+      return 'win'
+    }
+
+    return 'pick a number to play again'
+  }
+
+  return rouletteAction;
 }
 
 // /*** Uncomment these to check your work! ***/
-// const play = roulette(3);
-// console.log(play()); // => should log 'spin'
-// console.log(play()); // => should log 'spin'
-// console.log(play()); // => should log 'win'
-// console.log(play()); // => should log 'pick a number to play again'
-// console.log(play()); // => should log 'pick a number to play again'
+const play = roulette(3);
+console.log(play()); // => should log 'spin'
+console.log(play()); // => should log 'spin'
+console.log(play()); // => should log 'win'
+console.log(play()); // => should log 'pick a number to play again'
+console.log(play()); // => should log 'pick a number to play again'
 
 
 // CHALLENGE 16
