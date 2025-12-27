@@ -396,51 +396,86 @@ console.log(play()); // => should log 'pick a number to play again'
 
 // CHALLENGE 16
 function average() {
+  const numbersAdded = [];
 
+  return (num) => {
+    if (num) {
+      numbersAdded.push(num);
+    }
+
+    if (!numbersAdded.length) return 0;
+
+    let total = 0;
+
+    numbersAdded.forEach((number) => {
+      total += number;
+    });
+
+    return total / numbersAdded.length;
+  }
 }
 
 // /*** Uncomment these to check your work! ***/
-// const avgSoFar = average();
-// console.log(avgSoFar()); // => should log 0
-// console.log(avgSoFar(4)); // => should log 4
-// console.log(avgSoFar(8)); // => should log 6
-// console.log(avgSoFar()); // => should log 6
-// console.log(avgSoFar(12)); // => should log 8
-// console.log(avgSoFar()); // => should log 8
+const avgSoFar = average();
+console.log(avgSoFar()); // => should log 0
+console.log(avgSoFar(4)); // => should log 4
+console.log(avgSoFar(8)); // => should log 6
+console.log(avgSoFar()); // => should log 6
+console.log(avgSoFar(12)); // => should log 8
+console.log(avgSoFar()); // => should log 8
 
 
 // CHALLENGE 17
 function makeFuncTester(arrOfTests) {
-
+  return (callBack) => {
+    return arrOfTests.every(([item, value]) => {
+      return callBack(item) === value;
+    });
+  }
 }
 
 // /*** Uncomment these to check your work! ***/
-// const capLastTestCases = [];
-// capLastTestCases.push(['hello', 'hellO']);
-// capLastTestCases.push(['goodbye', 'goodbyE']);
-// capLastTestCases.push(['howdy', 'howdY']);
-// const shouldCapitalizeLast = makeFuncTester(capLastTestCases);
-// const capLastAttempt1 = str => str.toUpperCase();
-// const capLastAttempt2 = str => str.slice(0, -1) + str.slice(-1).toUpperCase();
-// console.log(shouldCapitalizeLast(capLastAttempt1)); // => should log false
-// console.log(shouldCapitalizeLast(capLastAttempt2)); // => should log true
+const capLastTestCases = [];
+capLastTestCases.push(['hello', 'hellO']);
+capLastTestCases.push(['goodbye', 'goodbyE']);
+capLastTestCases.push(['howdy', 'howdY']);
+const shouldCapitalizeLast = makeFuncTester(capLastTestCases);
+const capLastAttempt1 = str => str.toUpperCase();
+const capLastAttempt2 = str => str.slice(0, -1) + str.slice(-1).toUpperCase();
+console.log(shouldCapitalizeLast(capLastAttempt1)); // => should log false
+console.log(shouldCapitalizeLast(capLastAttempt2)); // => should log true
 
 
 // CHALLENGE 18
 function makeHistory(limit) {
+  const historyArray = [];
 
+  return (param) => {
+    if (param === 'undo') {
+      return historyArray.length ? `${historyArray.pop()} undone` : 'nothing to undo';
+    }
+
+    if (param) {
+      if (historyArray.length === limit) {
+        historyArray.splice(0, 1);
+      }
+
+      historyArray.push(param);
+      return `${param} done`
+    }
+  }
 }
 
 // /*** Uncomment these to check your work! ***/
-// const myActions = makeHistory(2);
-// console.log(myActions('jump')); // => should log 'jump done'
-// console.log(myActions('undo')); // => should log 'jump undone'
-// console.log(myActions('walk')); // => should log 'walk done'
-// console.log(myActions('code')); // => should log 'code done'
-// console.log(myActions('pose')); // => should log 'pose done'
-// console.log(myActions('undo')); // => should log 'pose undone'
-// console.log(myActions('undo')); // => should log 'code undone'
-// console.log(myActions('undo')); // => should log 'nothing to undo'
+const myActions = makeHistory(2);
+console.log(myActions('jump')); // => should log 'jump done'
+console.log(myActions('undo')); // => should log 'jump undone'
+console.log(myActions('walk')); // => should log 'walk done'
+console.log(myActions('code')); // => should log 'code done'
+console.log(myActions('pose')); // => should log 'pose done'
+console.log(myActions('undo')); // => should log 'pose undone'
+console.log(myActions('undo')); // => should log 'code undone'
+console.log(myActions('undo')); // => should log 'nothing to undo'
 
 
 // CHALLENGE 19
