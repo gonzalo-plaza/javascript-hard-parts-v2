@@ -329,14 +329,21 @@ console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // =
 
 // CHALLENGE 13
 function createSecretHolder(secret) {
+  let secretValue = secret;
 
+  return {
+    getSecret: () => secretValue,
+    setSecret: (value) => {
+      secretValue = value;
+    }
+  }
 }
 
 // /*** Uncomment these to check your work! ***/
-// obj = createSecretHolder(5)
-// obj.getSecret() // => returns 5
-// obj.setSecret(2)
-// obj.getSecret() // => returns 2
+obj = createSecretHolder(5)
+console.log(obj.getSecret()) // => returns 5
+console.log(obj.setSecret(2))
+console.log(obj.getSecret()) // => returns 2
 
 
 // CHALLENGE 14
