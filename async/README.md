@@ -6,7 +6,7 @@ This directory contains exercises on asynchronicity based on the **JavaScript Ha
 
 ## Course
 
-- **Platform:** [Frontend Masters](https://frontendmasters.com/courses/javascript-hard-parts-v2/)
+- **Course:** [JavaScript: The Hard Parts, v2](https://frontendmasters.com/courses/javascript-hard-parts-v2/)
 - **Exercise Statements:** [CSBin - Async](http://csbin.io/async)
 - **Official Solution:** [Official - Solution](https://github.com/FrontendMasters/fm-snippets/blob/main/javascript-hard-parts-v2/async.js)
 

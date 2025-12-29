@@ -6,9 +6,9 @@ This directory contains exercises on callbacks and higher-order functions based 
 
 ## Course
 
-- **Platform:** [Frontend Masters](https://frontendmasters.com/courses/javascript-hard-parts-v2/)
+- **Course:** [JavaScript: The Hard Parts, v2](https://frontendmasters.com/courses/javascript-hard-parts-v2/)
 - **Exercise Statements:** [CSBin - Callbacks](http://csbin.io/callbacks)
-- **Exercices oficial solution:** [Oficial - Solution](https://github.com/FrontendMasters/fm-snippets/blob/main/javascript-hard-parts-v2/callbacks.js)
+- **Official Solution:** [Official - Solution](https://github.com/FrontendMasters/fm-snippets/blob/main/javascript-hard-parts-v2/callbacks.js)
 
 ## Challenges
 

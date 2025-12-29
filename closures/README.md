@@ -6,7 +6,7 @@ This directory contains exercises on closures, scope, and execution context base
 
 ## Course
 
-- **Platform:** [Frontend Masters](https://frontendmasters.com/courses/javascript-hard-parts-v2/)
+- **Course:** [JavaScript: The Hard Parts, v2](https://frontendmasters.com/courses/javascript-hard-parts-v2/)
 - **Exercise Statements:** [CSBin - Closures](http://csbin.io/closures)
 - **Official Solution:** [Official - Solution](https://github.com/FrontendMasters/fm-snippets/blob/main/javascript-hard-parts-v2/closures.js)
 
