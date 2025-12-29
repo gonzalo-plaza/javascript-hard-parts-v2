@@ -1,137 +1,87 @@
-# Callbacks and Higher-Order Functions
+# Asynchronicity
 
-This directory contains exercises on callbacks and higher-order functions based on the **JavaScript Hard Parts V2** course from **Frontend Masters**.
+<img src="../images/frontendmasters_logo.svg" alt="Frontend Masters" width="400" />
+
+This directory contains exercises on asynchronicity based on the **JavaScript Hard Parts V2** course from **Frontend Masters**.
 
 ## Course
 
 - **Platform:** [Frontend Masters](https://frontendmasters.com/courses/javascript-hard-parts-v2/)
-- **Exercise Statements:** [CSBin - Callbacks](http://csbin.io/callbacks)
-- **Exercices oficial solution:** [Oficial - Solution](https://github.com/FrontendMasters/fm-snippets/blob/main/javascript-hard-parts-v2/callbacks.js)
+- **Exercise Statements:** [CSBin - Async](http://csbin.io/async)
+- **Official Solution:** [Official - Solution](https://github.com/FrontendMasters/fm-snippets/blob/main/javascript-hard-parts-v2/async.js)
+
+## Note
+
+We recommend that after you complete a challenge, you re-comment out the test case for that challenge so the console output is not confusing when working on subsequent challenges.
 
 ## Challenges
 
 ### Challenge 1
 
-Create a function addTwo that accepts one input and adds 2 to it.
+Thinking point (no writing code necessary for this challenge): Inspect the code given to you in Challenge 1. In what order should the console logs come out? Howdy first or Partnah first?
 
 ### Challenge 2
 
-Create a function addS that accepts one input and adds an "s" to it.
+Create a function `delayedGreet` that console logs welcome after 3 seconds.
 
 ### Challenge 3
 
-Create a function called map that takes two inputs:
-
-- an array of numbers (a list of numbers)
-- a 'callback' function - a function that is applied to each element of the array (inside of the function 'map')
-
-Have map return a new array filled with numbers that are the result of using the 'callback' function on each element of the input array.
-
-```javascript
-map([1, 2, 3, 4, 5], multiplyByTwo); //-> [2,4,6,8,10]
-multiplyByTwo(1); //-> 2
-multiplyByTwo(2); //-> 4
-```
+Create a function `helloGoodbye` that console logs hello right away, and good bye after 2 seconds.
 
 ### Challenge 4
 
-Create a function called forEach that takes an array and a callback, and runs the callback on each element of the array. forEach does not return anything.
-
-```javascript
-let alphabet = "";
-const letters = ["a", "b", "c", "d"];
-forEach(letters, function (char) {
-  alphabet += char;
-});
-console.log(alphabet); //prints 'abcd'
-```
+Create a function `brokenRecord` that console logs hi again every second. Use the End Code button to stop the console logs when you are satisfied that it is working.
 
 ### Challenge 5
 
-In challenge 3, you've created a function called map. In this challenge, you're going to rebuild the map function by creating a function called mapWith. This time you're going to use forEach inside of mapWith instead of using a for loop.
+Create a function `limitedRepeat` that console logs hi for now every second, but only for 5 seconds. Research how to use `clearInterval` if you are not sure how to do this.
 
 ### Challenge 6
 
-Create a function called reduce that takes an array and reduces the elements to a single value. For example it can sum all the numbers, multiply them, or any operation that you can put into a function.
+Write a function called `everyXsecsForYsecs` that will accept three arguments: a function `func`, a number `interval`, and another number `duration`.
 
-```javascript
-const nums = [4, 1, 3];
-const add = function (a, b) {
-  return a + b;
-};
-reduce(nums, add, 0); //-> 8
-```
+`everyXsecsForYsecs` will execute the given function every `interval` number of milliseconds, but then automatically stop after `duration` milliseconds.
 
-Here's how it works. The function has an "accumulator value" which starts as the initialValue and accumulates the output of each loop. The array is iterated over, passing the accumulator and the next array element as arguments to the callback. The callback's return value becomes the new accumulator value. The next loop executes with this new accumulator value. In the example above, the accumulator begins at 0. add(0,4) is called. The accumulator's value is now 4. Then add(4, 1) to make it 5. Finally add(5, 3) brings it to 8, which is returned.
+Then pass the below `sayHi` function into an invocation of `everyXsecsForYsecs` with 1000 interval time an 5000 duration time.
+
+What do you expect to happen?
 
 ### Challenge 7
 
-Construct a function intersection that takes in an array of arrays, compares the inner arrays, and returns a new array with elements found in all of them. BONUS: Use reduce!
+Write a function `delayCounter` that accepts a number (called 'target') as the first argument and a number of milliseconds (called 'wait') as the second argument, and returns a function.
+
+When the returned function is invoked, it should log to the console all of the numbers between 1 and the target number, spaced apart by 'wait' milliseconds.
 
 ### Challenge 8
 
-Construct a function union that takes in an array of arrays, compares the inner arrays, and returns a new array that contains all elements. If there are duplicate elements, only add it once to the new array. Preserve the order of the elements starting from the first element of the first array. BONUS: Use reduce!
+Write a function, `promised`, that takes in a value. This function will return a promise that will resolve after 2 seconds.
+
+Hint: take a look at the Promise object docs on MDN.
 
 ### Challenge 9
 
-Construct a function objOfMatches that accepts two arrays and a callback. objOfMatches will build an object and return it. To build the object, objOfMatches will test each element of the first array using the callback to see if the output matches the corresponding element (by index) of the second array. If there is a match, the element from the first array becomes a key in an object, and the element from the second array becomes the corresponding value.
+Write a `SecondClock` class, with two methods: `start` and `reset`.
+
+**start:** upon invocation, invokes a callback (`this.cb`, defined in the constructor) on an argument every second, with the argument to the callback being the current seconds "value".
+
+In other words, the callback gets invoked every second on the "seconds hand" of the clock. Always start with 1 and don't utilize the seconds value of the current computer clock time.
+
+- The first "tick" with value 1 occurs 1 second after the initial "secondClock" invocation.
+- The second "tick" with value 2 occurs 2 seconds after the initial "secondClock" invocation.
+- ...
+- The sixtieth "tick" with value 60 occurs 60 seconds after the initial "secondClock" invocation.
+- The sixty-first "tick" with value 1 occurs 61 seconds after the initial "secondClock" invocation.
+- The sixty-second "tick" with value 2 occurs 62 seconds after the initial "secondClock" invocation.
+- etc.
+
+**reset:** upon invocation, completely stops the "clock". Also resets the time back to the beginning.
+
+Hint: look up `setInterval` and `clearInterval`.
 
 ### Challenge 10
 
-Construct a function multiMap that will accept two arrays: an array of values and an array of callbacks. multiMap will return an object whose keys match the elements in the array of values. The corresponding values that are assigned to the keys will be arrays consisting of outputs from the array of callbacks, where the input to each callback is the key.
+Write a function called `debounce` that accepts a function and returns a new function that only allows invocation of the given function after `interval` milliseconds have passed since the last time the returned function ran.
 
-### Challenge 11
+Additional calls to the returned function within the interval time should not be invoked or queued, but the timer should still get reset.
 
-Construct a function objectFilter that accepts an object as the first parameter and a callback function as the second parameter. objectFilter will return a new object. The new object will contain only the properties from the input object such that the property's value is equal to the property's key passed into the callback.
-
-### Challenge 12
-
-Create a function majority that accepts an array and a callback. The callback will return either true or false. majority will iterate through the array and perform the callback on each element until it can be determined if the majority of the return values from the callback are true. If the number of true returns is equal to the number of false returns, majority should return false.
-
-### Challenge 13
-
-Create a function prioritize that accepts an array and a callback. The callback will return either true or false. prioritize will iterate through the array and perform the callback on each element, and return a new array, where all the elements that yielded a return value of true come first in the array, and the rest of the elements come second.
-
-### Challenge 14
-
-Create a function countBy that accepts an array and a callback, and returns an object. countBy will iterate through the array and perform the callback on each element. Each return value from the callback will be saved as a key on the object. The value associated with each key will be the number of times that particular return value was returned.
-
-### Challenge 15
-
-Create a function groupBy that accepts an array and a callback, and returns an object. groupBy will iterate through the array and perform the callback on each element. Each return value from the callback will be saved as a key on the object. The value associated with each key will be an array consisting of all the elements that resulted in that return value when passed into the callback.
-
-### Challenge 16
-
-Create a function goodKeys that accepts an object and a callback. The callback will return either true or false. goodKeys will iterate through the object and perform the callback on each value. goodKeys will then return an array consisting only the keys whose associated values yielded a true return value from the callback.
-
-### Challenge 17
-
-Create a function commutative that accepts two callbacks and a value. commutative will return a boolean indicating if the passing the value into the first function, and then passing the resulting output into the second function, yields the same output as the same operation with the order of the functions reversed (passing the value into the second function, and then passing the output into the first function).
-
-### Challenge 18
-
-Create a function objFilter that accepts an object and a callback. objFilter should make a new object, and then iterate through the passed-in object, using each key as input for the callback. If the output from the callback is equal to the corresponding value, then that key-value pair is copied into the new object. objFilter will return this new object.
-
-### Challenge 19
-
-Create a function rating that accepts an array (of functions) and a value. All the functions in the array will return true or false. rating should return the percentage of functions from the array that return true when the value is used as input.
-
-### Challenge 20
-
-Create a function pipe that accepts an array (of functions) and a value. pipe should input the value into the first function in the array, and then use the output from that function as input for the second function, and then use the output from that function as input for the third function, and so forth, until we have an output from the last function in the array. pipe should return the final output.
-
-### Challenge 21
-
-Create a function highestFunc that accepts an object (which will contain functions) and a subject (which is any value). highestFunc should return the key of the object whose associated value (which will be a function) returns the largest number, when the subject is given as input.
-
-### Challenge 22
-
-Create a function, combineOperations, that takes two parameters: a starting value and an array of functions. combineOperations should pass the starting value into the first function in the array. combineOperations should pass the value returned by the first function into the second function, and so on until every function in the array has been called. combineOperations should return the final value returned by the last function in the array.
-
-### Challenge 23
-
-Define a function myFunc that takes an array and a callback. myFunc should pass each element from the array (in order) into the callback. If the callback returns true, myFunc should return the index of the current element. If the callback never returns true, myFunc should return -1;
-
-### Challenge 24
-
-Write a function myForEach that accepts an array and a callback function. Your function should pass each element of the array (in order) into the callback function. The behavior of this function should mirror the functionality of the native .forEach() JavaScript array method as closely as possible.
+For examples of debouncing, check out https://css-tricks.com/debouncing-throttling-explained-examples/

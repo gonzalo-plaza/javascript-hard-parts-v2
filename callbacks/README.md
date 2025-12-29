@@ -1,5 +1,7 @@
 # Callbacks and Higher-Order Functions
 
+<img src="../images/frontendmasters_logo.svg" alt="Frontend Masters" width="400" />
+
 This directory contains exercises on callbacks and higher-order functions based on the **JavaScript Hard Parts V2** course from **Frontend Masters**.
 
 ## Course

@@ -1,5 +1,7 @@
 # Closures, Scope, and Execution Context
 
+<img src="../images/frontendmasters_logo.svg" alt="Frontend Masters" width="400" />
+
 This directory contains exercises on closures, scope, and execution context based on the **JavaScript Hard Parts V2** course from **Frontend Masters**.
 
 ## Course
