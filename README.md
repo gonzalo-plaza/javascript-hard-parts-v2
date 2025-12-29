@@ -1,5 +1,7 @@
 # JavaScript: The Hard Parts, v2
 
+<img src="images/frontendmasters_logo.svg" alt="Frontend Masters" width="400" />
+
 This project contains a collection of practical exercises based on the [**JavaScript: The Hard Parts, v2**](https://frontendmasters.com/courses/javascript-hard-parts-v2/) course from Frontend Masters, taught by Will Sentance.
 
 ## 📚 About the Course
